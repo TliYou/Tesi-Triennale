@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,10pt]{report}
 \usepackage{geometry}\geometry{a4paper,top=3.5cm,bottom=3.5cm,%
 left=2.5cm,right=2.5cm,heightrounded,bindingoffset=0mm}
 \usepackage[T1]{fontenc}
@@ -17,8 +17,10 @@ left=2.5cm,right=2.5cm,heightrounded,bindingoffset=0mm}
 \usepackage[output-decimal-marker={,}]{siunitx}
 \usepackage{tikz}
 \usepackage{pgfplots,pgfplotstable}
-\pgfplotsset{compat=1.15} %indica la versione da utilizzare per pgfplot
+%\pgfplotsset{compat=1.15} %indica la versione da utilizzare per pgfplot
 \usetikzlibrary{patterns} % per il tratteggio
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=newest}
 \usepackage{stanli}
 \usepackage{xspace}% per lo spazio intelligente
 \newcommand{\e}{\`E\xspace}  %E'
@@ -54,6 +56,7 @@ numberstyle=\tiny,}
 \usepackage{lscape}
 \usepackage{multirow}
 \usepackage{import}
+%\usepackage{pythontex}
 \begin{document}
 \input{CHAPTERS/Titolo.tex}
 \tableofcontents
@@ -75,4 +78,62 @@ numberstyle=\tiny,}
 %
 
 \input{CHAPTERS/CHAP1_Intro.tex}
+\input{CHAPTERS/CHAP2_Statica.tex}
+\clearpage
+\begin{landscape}
+        \subsection*{Parete in muratura con isolante interno}
+                \begin{minipage}[c]{0.4\linewidth}
+                        \input{CHAPTERS/tabella-input-1a.tex}
+                \end{minipage}
+                \begin{minipage}[c]{0.6\linewidth}
+                        \input{CHAPTERS/temperatura+pressione--parete-1a.tex}    
+                \end{minipage}
+        \subsection*{Parete in muratura con isolante esterno}
+                \begin{minipage}[c]{0.4\linewidth}
+                        \input{CHAPTERS/tabella-input-1b.tex}
+                \end{minipage}
+                \begin{minipage}[c]{0.6\linewidth}
+                        \input{CHAPTERS/temperatura+pressione--parete-1b.tex}    
+                \end{minipage}
+        \subsection*{Perete in X-LAM con isolante bassa densità}
+                \begin{minipage}[c]{0.4\linewidth}
+                        \input{CHAPTERS/tabella-input-3a.tex}
+                \end{minipage}
+                \begin{minipage}[c]{0.6\linewidth}
+                        \input{CHAPTERS/temperatura+pressione--parete-3a.tex}    
+                \end{minipage}
+        \subsection*{Perete in X-LAM con isolante bassa densità lana di roccia}
+                \begin{minipage}[c]{0.4\linewidth}
+                        \input{CHAPTERS/tabella-input-3b.tex}
+                \end{minipage}
+                \begin{minipage}[c]{0.6\linewidth}
+                        \input{CHAPTERS/temperatura+pressione--parete-3b.tex}    
+                \end{minipage}
+        \subsection*{Perete in X-LAM con isolante alta densità fibra di legno}
+                \begin{minipage}[c]{0.4\linewidth}
+                        \input{CHAPTERS/tabella-input-3c.tex}
+                \end{minipage}
+                \begin{minipage}[c]{0.6\linewidth}
+                        \input{CHAPTERS/temperatura+pressione--parete-3c.tex}    
+                \end{minipage}
+ \clearpage       
+\end{landscape}
+\clearpage
+\input{CHAPTERS/CHAP3_Dinamica.tex}
+\begin{landscape}
+        \input{CHAPTERS/tabella-dinamica-1a.tex}
+        \clearpage
+        \input{CHAPTERS/tabella-dinamica-1b.tex}
+        \clearpage
+        \input{CHAPTERS/tabella-dinamica-3a.tex}
+        \clearpage
+        \input{CHAPTERS/tabella-dinamica-3b.tex}
+        \clearpage
+        \input{CHAPTERS/tabella-dinamica-3c.tex}
+        \clearpage
+        \input{CHAPTERS/confronto.tex}
+\end{landscape}
+
+
 \end{document}
+

@@ -1,0 +1,73 @@
+%!TEX root = ../TesiTriennaleMeoliNicola.tex
+\chapter{Analisi dinamica}
+
+Definizione di alcuni parametri utilizzati:
+Profondità di penetrazione $\delta$ 
+Massa superficiale
+blabla
+
+
+
+\begin{equation}
+    \delta^{(k)} = \sqrt{\frac{\lambda^{(k)} \, T}{\pi \,\rho^{(k)} \,c^{(k)}}}
+\end{equation}
+La matrice di trasferimento, calcolata per ogni singolo strato $k$-esimo è definita come:
+\begin{equation}
+    \mathbf{Z}^{(k)} =
+    \begin{bmatrix}  
+        Z_{11}^{(k)} & Z_{12}^{(k)} \\
+        Z_{21}^{(k)} & Z_{22}^{(k)}
+    \end{bmatrix}
+\end{equation}
+dove le componenti della matrice $\mathbf{Z^{(k)}}$ sono
+
+{\footnotesize
+\begin{align*}
+    Z_{11}^{(k)} &= Z_{22}^{(k)} = \cosh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right) + \mathrm{i} \left[\sinh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right)\right] \\
+    Z_{12}^{(k)} &=-\frac{\delta^{(k)}}{2\lambda^{(k)}}\Bigl\{\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)+\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right) + \mathrm{i}\left[\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right)-\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)\right]  \Bigr\} \\
+    Z_{21}^{(k)} &= \frac{\lambda^{(k)}}{\delta^{(k)}}\Bigl\{  \sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)-\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right) + \mathrm{i} \left[\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)+\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right)\right] \Bigr\}
+\end{align*}
+}%
+e con $\xi^{(k)}$ si intende il rapporto $\dfrac{d^{(k)}}{\delta^{(k)}}$ calcolato per ogni strato.
+
+Moltiplicando le matrici di trasferimento di ogni singolo strato si ottiene la matrice di trasferimento dell'intero componente edilizio relativa agli $N$  strati:
+\begin{equation}
+    \mathbf{Z}=\mathbf{Z}_{N}\cdot\mathbf{Z}_{N-1}\cdot\ldots\cdot\mathbf{Z}_{2}\cdot\mathbf{Z}_{1} \qquad .
+\end{equation}
+Calcolando le matrici di trasferimento degli strati liminari come
+\begin{equation}
+    \mathbf{Z}_{\text{int.}} = 
+    \begin{bmatrix}
+        1 & -R_{\text{s,int.}} \\
+        0 & 1
+    \end{bmatrix}
+    \qquad
+    \mathbf{Z}_{\text{est.}} = 
+    \begin{bmatrix}
+        1 & -R_{\text{s,est.}} \\
+        0 & 1
+    \end{bmatrix}
+\end{equation}
+si può infine ottenere la matrice di trasferimento da ambiente ad ambiente:
+\begin{equation}
+    \mathbf{Z}_{\text{ee}} = \mathbf{Z}_{\text{est.}} \cdot \mathbf{Z} \cdot \mathbf{Z}_{\text{int.}} \qquad .
+\end{equation}
+
+Dagli elementi di questa matrice è possibile ricavare le grandezze di nostro interesse per l'analisi dinamica.
+Dall'elemento {\footnotesize $12$} della matrice $\mathbf{Z_{\text{ee}}}$ si ricava la trasmittanza termica periodica $Y_{12}$ tramite il modulo della parte reale e immaginaria
+\begin{equation}
+    Y_{12} = \left\lvert -\frac{1}{Z_{\text{ee},12}}\right\rvert 
+\end{equation} 
+e il fattore di attenuazione $f$
+\begin{equation}
+    f = -\frac{Y_{12}}{U} \qquad .
+\end{equation}
+Lo sfasamento riferito al tempo iniziale si ottiene infine come:
+\begin{equation}
+    \Delta T = \frac{T}{2\,\pi}\arg\left(Z_{\text{ee},12}\right) + \frac{T}{2} \qquad .
+\end{equation}
+Dagli elementi {\footnotesize $11$} e {\footnotesize $22$} si ricavano riispettivamente l'ammettenza termica interna ed esterna 
+\begin{equation}
+    Y_{\text{ii}}=Y_{11} = \left\lvert -\frac{1}{Z_{\text{ee},11}}\right\rvert \qquad \qquad
+    Y_{\text{ee}}=Y_{22} = \left\lvert -\frac{1}{Z_{\text{ee},22}}\right\rvert 
+\end{equation} 
