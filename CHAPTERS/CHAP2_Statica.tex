@@ -1,2 +1,24 @@
 %!TEX root = ../TesiTriennaleMeoliNicola.tex
 \chapter{Analisi statica}
+\begin{align*}
+    \Delta\vartheta &= \vartheta_{\text{int.}} - \vartheta_{\text{est.}} \\
+    \vartheta^{(1)} &= \vartheta_{\text{int.}} \\
+    \vartheta^{(k)} &= \vartheta_{\text{int.}} - \frac{\Delta\vartheta}{R_{tot}} \, \left(R_{\text{s,int.}} + \sum_{i=1}^{k}R^{(i)}\right) \\
+    \vartheta^{(N)} &= \vartheta_{\text{est.}} \qquad \left[\SI{}{\celsius}\right]
+\end{align*}
+
+\begin{equation}
+    p^{(k)}_{\text{SAT.}} =
+    \begin{cases}
+            610.5\exp\left(\frac{17.269\,\vartheta^{(k)}}{237.3 + \vartheta^{(k)}}\right) & \text{per $\vartheta^{(k)}\geq \SI{0}{\celsius}$}\\ 
+            610.5\exp\left(\frac{21.875\,\vartheta^{(k)}}{265.5 + \vartheta^{(k)}}\right) & \text{per $\vartheta^{(k)} \leq  \SI{0}{\celsius}$}
+    \end{cases}
+    \qquad \left[\SI{}{\pascal}\right]
+\end{equation}
+
+\begin{align*}
+    p^{(1)} &= p_{\text{int.}} = p^{\text{SAT.}}_{\text{int.}} \cdot UR_{\text{int.}}\\
+    p^{(N)} &= p_{\text{est.}} = p^{\text{SAT.}}_{\text{est.}} \cdot UR_{\text{est.}}\\
+    \Delta p &= p_{\text{int.}} - p_{\text{est.}} \\
+    p^{(k)} &= p_{\text{int.}} - \frac{\Delta p}{Sd_{tot}} \, \left(\sum_{i=1}^{k} Sd^{(i)} \right) \qquad \left[\SI{}{\pascal}\right]
+\end{align*}

@@ -1,16 +1,18 @@
 %!TEX root = ../TesiTriennaleMeoliNicola.tex
 \chapter{Analisi dinamica}
-
-Definizione di alcuni parametri utilizzati:
-Profondità di penetrazione $\delta$ 
-Massa superficiale
-blabla
-
-
-
-\begin{equation}
-    \delta^{(k)} = \sqrt{\frac{\lambda^{(k)} \, T}{\pi \,\rho^{(k)} \,c^{(k)}}}
-\end{equation}
+\section*{Alcune definizioni e nomenclature}
+Con la denominazione dell'á'pice $^{(k)}$ d'ora in avanti si farà riferimento ad una quantità che và calcolata per ogni strato $k$-esimo. 
+Con il  grassetto verranno indicate delle matrici, mentre con un doppio pedice le componenti di tali matrici.
+\begin{table}[H]
+\centering
+\begin{tabular}{p{0.3\textwidth}p{0.7\textwidth}}
+    \toprule
+    \textbf{Profondità di penetrazione}  \[\delta^{(k)} = \sqrt{\frac{\lambda^{(k)} \, T}{\pi \,\rho^{(k)} \,c^{(k)}}} \,\left[\SI{}{\metre}\right]\] & definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione \\
+    \textbf{Rapporto lunghezze} \[\xi^{(k)} = \dfrac{s^{(k)}}{\delta^{(k)}} \,\left[\SI{}{-}\right] \] & definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione definizione \\
+    \bottomrule
+\end{tabular}
+\end{table}
+\section*{Metodologia secondo la normativa}
 La matrice di trasferimento, calcolata per ogni singolo strato $k$-esimo è definita come:
 \begin{equation}
     \mathbf{Z}^{(k)} =
@@ -27,8 +29,7 @@ dove le componenti della matrice $\mathbf{Z^{(k)}}$ sono
     Z_{12}^{(k)} &=-\frac{\delta^{(k)}}{2\lambda^{(k)}}\Bigl\{\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)+\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right) + \mathrm{i}\left[\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right)-\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)\right]  \Bigr\} \\
     Z_{21}^{(k)} &= \frac{\lambda^{(k)}}{\delta^{(k)}}\Bigl\{  \sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)-\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right) + \mathrm{i} \left[\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)+\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right)\right] \Bigr\}
 \end{align*}
-}%
-e con $\xi^{(k)}$ si intende il rapporto $\dfrac{d^{(k)}}{\delta^{(k)}}$ calcolato per ogni strato.
+}
 
 Moltiplicando le matrici di trasferimento di ogni singolo strato si ottiene la matrice di trasferimento dell'intero componente edilizio relativa agli $N$  strati:
 \begin{equation}
@@ -69,5 +70,9 @@ Lo sfasamento riferito al tempo iniziale si ottiene infine come:
 Dagli elementi {\footnotesize $11$} e {\footnotesize $22$} si ricavano riispettivamente l'ammettenza termica interna ed esterna 
 \begin{equation}
     Y_{\text{ii}}=Y_{11} = \left\lvert -\frac{1}{Z_{\text{ee},11}}\right\rvert \qquad \qquad
-    Y_{\text{ee}}=Y_{22} = \left\lvert -\frac{1}{Z_{\text{ee},22}}\right\rvert 
+    Y_{\text{ee}}=Y_{22} = \left\lvert -\frac{1}{Z_{\text{ee},22}}\right\rvert \qquad .
 \end{equation} 
+Un'altra quantità molto utile è la capacità termica periodica interna per unità di superficie. \e definita dalla normativa come $k_1 = \frac{T}{2\,\pi} \left\lvert Y_{11} - Y_{12}\right\rvert$ e sostituendo i termini in funzione dalla matrice di trasfermento, si può riscrivere come:
+\begin{equation}
+    k_1 = \frac{T}{2\,\pi} \left\lvert \frac{Z_{\text{ee},11} - 1}{Z_{\text{ee},12}}\right\rvert\,.
+\end{equation}
