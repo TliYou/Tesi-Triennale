@@ -21,23 +21,23 @@ width=\linewidth,
 x grid style={white!69.0196078431373!black},
 xlabel={Spessore parete (m)},
 xmajorgrids,
-xmin=-0.0122, xmax=0.2562,
+xmin=-0.0123, xmax=0.2583,
 xtick style={color=black},
-xtick={0,0.013,0.109,0.229,0.244},
+xtick={0,0.015,0.111,0.231,0.246},
 xticklabel style = {rotate=90.0},
 y grid style={white!69.0196078431373!black},
 ylabel={Temperature (°C)},
-ymin=-5.95747378805511, ymax=20.414641642178,
+ymin=-5.95814438534438, ymax=20.4165566468082,
 ytick style={color=black},
 ytick={-10,-5,0,5,10,15,20,25}
 ]
 \addplot [line width=1.5pt, green!50.1960784313725!black]
 table {%
-0 19.2159091226219
-0.013 18.8425325143467
-0.109 14.3885251635601
-0.229 -4.65821679704034
-0.244 -4.75874126849906
+0 19.2177065998922
+0.015 18.7878750613714
+0.111 14.3440782323564
+0.231 -4.6590003127735
+0.246 -4.75929433842835
 };
 \addlegendentry{Temperatura}
 
@@ -58,32 +58,32 @@ width=\linewidth,
 x grid style={white!69.0196078431373!black},
 xlabel={Spessore equivalente Sd (m)},
 xmajorgrids,
-xmin=-0.14425, xmax=3.02925,
+xmin=-0.14475, xmax=3.03975,
 xtick style={color=black},
-xtick={0,0.065,2.465,2.585,2.885},
+xtick={0,0.075,2.475,2.595,2.895},
 xticklabel style = {rotate=90.0},
 y grid style={white!69.0196078431373!black},
 ylabel={Pressione (Pa)},
-ymin=267.820712152638, ymax=2319.14847555738,
+ymin=267.808252731272, ymax=2319.41012340606,
 ytick style={color=black},
 ytick={250,500,750,1000,1250,1500,1750,2000,2250,2500}
 ]
 \addplot [line width=1.5pt, color0]
 table {%
 0 1519.01824347152
-0.065 1492.92912790252
-2.465 529.638706893132
-2.585 481.474185842663
-2.885 361.06288321649
+0.075 1489.0193999416
+2.475 529.056406984059
+2.595 481.058257336182
+2.895 361.06288321649
 };
 \addlegendentry{Pressione}
 \addplot [line width=1.5pt, red]
 table {%
-0 2225.90630449353
-0.065 2174.67021383189
-2.465 1638.46020552403
-2.585 413.073607008036
-2.885 409.542895587558
+0 2226.15549292085
+0.075 2167.25718410785
+2.475 1633.75511312812
+2.595 413.045980867543
+2.895 409.52354638032
 };
 \addlegendentry{Pressione Saturazione}
 \end{groupplot}

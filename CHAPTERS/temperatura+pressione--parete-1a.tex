@@ -21,23 +21,23 @@ width=\linewidth,
 x grid style={white!69.0196078431373!black},
 xlabel={Spessore parete (m)},
 xmajorgrids,
-xmin=-0.0185, xmax=0.3885,
+xmin=-0.0175, xmax=0.3675,
 xtick style={color=black},
-xtick={0,0.015,0.155,0.355,0.37},
+xtick={0,0.015,0.135,0.335,0.35},
 xticklabel style = {rotate=90.0},
 y grid style={white!69.0196078431373!black},
 ylabel={Temperature (°C)},
-ymin=-6.01137676302392, ymax=20.5685707562642,
+ymin=-5.94820265073794, ymax=20.3881663325197,
 ytick style={color=black},
 ytick={-10,-5,0,5,10,15,20,25}
 ]
 \addplot [line width=1.5pt, green!50.1960784313725!black]
 table {%
-0 19.3603913235693
-0.015 19.2373896550249
-0.155 -0.442877312074838
-0.355 -4.72119621796609
-0.37 -4.803197330329
+0 19.1910586514625
+0.015 19.035493007513
+0.135 -2.29922387699217
+0.335 -4.6473845403811
+0.35 -4.75109496968077
 };
 \addlegendentry{Temperatura}
 
@@ -58,32 +58,32 @@ width=\linewidth,
 x grid style={white!69.0196078431373!black},
 xlabel={Spessore equivalente Sd (m)},
 xmajorgrids,
-xmin=-0.1175, xmax=2.4675,
+xmin=-0.1165, xmax=2.4465,
 xtick style={color=black},
-xtick={0,0.09,0.23,2.23,2.35},
+xtick={0,0.09,0.21,2.21,2.33},
 xticklabel style = {rotate=90.0},
 y grid style={white!69.0196078431373!black},
 ylabel={Pressione (Pa)},
-ymin=266.815315862144, ymax=2340.26179765774,
+ymin=267.992841074213, ymax=2315.53376820431,
 ytick style={color=black},
 ytick={250,500,750,1000,1250,1500,1750,2000,2250,2500}
 ]
 \addplot [line width=1.5pt, color0]
 table {%
 0 1519.01824347152
-0.09 1474.67101690856
-0.23 1405.68644225507
-2.23 420.192518633768
-2.35 361.06288321649
+0.09 1474.29035401961
+0.21 1414.65316808373
+2.21 420.700069152371
+2.33 361.06288321649
 };
 \addlegendentry{Pressione}
 \addplot [line width=1.5pt, red]
 table {%
-0 2246.0142303034
-0.09 2228.8857975183
-0.23 588.588856594798
-2.23 410.858360238758
-2.35 407.990247749789
+0 2222.46372606204
+0.09 2201.01860298296
+0.21 504.307624049651
+2.21 413.455716135536
+2.33 409.810487413109
 };
 \addlegendentry{Pressione Saturazione}
 \end{groupplot}
