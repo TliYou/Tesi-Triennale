@@ -1,0 +1,375 @@
+\documentclass[aspectratio=141,10pt]{beamer}
+%\usepackage{geometry}\geometry{a4paper,top=3.5cm,bottom=3.5cm,left=2.5cm,right=2.5cm,heightrounded,bindingoffset=0mm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}%Per il Frame attrono le immagini e il valign
+\usepackage{subfig}
+\usepackage{amsmath,amsfonts,amssymb,braket,mathrsfs}
+\usepackage{float}
+\usepackage{tabularx,booktabs}
+\usepackage{hyperref}
+\usepackage{epsfig}
+\usepackage{pdfpages} %Per gli allegati
+%\usepackage{minipage}
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage{tikz}
+\usepackage{pgfplots,pgfplotstable}
+%\pgfplotsset{compat=1.15} %indica la versione da utilizzare per pgfplot
+\usetikzlibrary{patterns} % per il tratteggio
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=newest}
+%\usepackage{stanli}
+\usepackage{xspace}% per lo spazio intelligente
+\newcommand{\e}{\`E\xspace}  %E'
+\captionsetup{tableposition=top,figureposition=bottom,font=small}\captionsetup{format=hang,labelfont={bf,color=pantone186}} %didascalie a più righe allineate e il nome in grassetto
+%non viene allineato a sinistra se la didascalia è corta una sola riga. PERCHé??
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+%serve per mettere il codice con lo sfondo grigio chiaro
+\definecolor{pantone186}{RGB}{206, 17, 38} %il colore del logo UNITN
+\definecolor{myGray}{gray}{0.5} %più basso più scuro è
+\usepackage{listings} 
+\lstset{basicstyle=\scriptsize\ttfamily,
+backgroundcolor=\color{lightgray},%
+boxpos=c,%
+stringstyle=\itshape,		
+lineskip=3pt,%
+numbers=left,
+numberstyle=\tiny,}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{import}
+%\usepackage{pythontex}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{pgf} 
+\title[Confronto prestazionale]{Confronto prestazionale tra diverse soluzioni edilizie}
+\subtitle{d}
+\author{Nicola Meoli}
+\institute[UniTrento]{Università degli studi di Trento}
+\date{22 dicembre 2020}
+%\logo{\includegraphics{../IMG/logo_unitn_black_centerNEW.eps}}
+
+\usefonttheme{serif} %font normali di latex
+\usetheme[numbers,totalnumber]{madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{} %rimuove la barra con le freccette
+\setbeamercolor{title}{fg=white,bg=pantone186}
+\setbeamercolor{titlelike}{fg=white,bg=pantone186}
+\setbeamercolor{palette primary}{fg=white,bg=pantone186}
+\setbeamercolor{palette secondary}{fg=white,bg=pantone186}
+\setbeamercolor{palette tertiary}{fg=white,bg=pantone186}
+\setbeamercolor{palette quaternary}{fg=white,bg=pantone186}
+\setbeamercolor{palette sidebar primary}{fg=white,bg=pantone186}
+\setbeamercolor{palette sidebar secondary}{fg=white,bg=pantone186}
+\setbeamercolor{palette sidebar tertiary}{fg=white,bg=pantone186}
+\setbeamercolor{palette sidebar quaternary}{fg=white,bg=pantone186}
+\setbeamerfont{frametitle}{series=\bfseries} %titolo frame in grassetto
+\begin{document}
+\begin{frame}
+\pagestyle{plain}
+\thispagestyle{empty}
+\begin{center}
+  \begin{figure}[H]
+    \centerline{\psfig{file=../IMG/logo_unitn_black_centerNEW.eps,
+                        width=0.5\textwidth,trim = 0 1.5cm 0 0.6cm}}
+  \end{figure}
+\textcolor{pantone186}{\noindent\rule{0.7\textwidth}{.5pt}}
+
+  \footnotesize{\textsc{Dipartimento di Ingegneria Civile, Ambientale e Meccanica\\}}
+  \footnotesize{Corso di Laurea in Ingegneria Civile}
+
+  \vspace{0.9 cm} 
+  %\Large\textsc{Elaborato finale\\} 
+  %\vspace{1 cm} 
+  {\Large{\textsc{Confronto prestazionale\\ tra diverse soluzioni edilizie\\}}}
+  
+  \vspace{0.2 cm}
+  {\it{Analisi termo igrometrica di alcuni pacchetti strutturali composti da differenti materiali. }}
+
+
+  \vspace{1.5 cm} 
+  \begin{tabular*}{\textwidth}{ l @{\extracolsep{\fill}} r }
+  \textsc{Supervisore} & \textsc{Laureando}\\
+  {Rossano Albatici}& {Nicola Meoli 186100}\\
+  \end{tabular*}
+
+  \vspace{.3cm} 
+  \textcolor{pantone186}{\noindent\rule{\textwidth}{1pt}}
+    
+  {Anno accademico 2020/21}
+\end{center}
+\end{frame}
+
+%---------------------------------------------------------------
+%---------------------------------------------------------------
+
+\begin{frame}{ciaoo}
+    ciao 
+    \pause
+    ciaooo
+\end{frame}
+\begin{frame}
+    \frametitle{Verifica condensa interstiziale}
+    \framesubtitle{Temperatura}
+Calcolo della temperatura per ogni strato a partire dalla temperatura interna 
+    \begin{align*}
+        \Delta\vartheta &= \vartheta_{\text{int.}} - \vartheta_{\text{est.}} \\
+        \vartheta^{(1)} &= \vartheta_{\text{int.}} \\
+        \vartheta^{(k)} &= \vartheta_{\text{int.}} - \frac{\Delta\vartheta}{R_{tot}} \, \left(R_{\text{s,int.}} + \sum_{i=1}^{k}R^{(i)}\right) \\
+        \vartheta^{(N)} &= \vartheta_{\text{est.}} \qquad \left[\SI{}{\celsius}\right]
+    \end{align*}
+    \pause
+    ciaooo
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto verifica condensa interstizionale}
+    \framesubtitle{Parete solo mattone pieno (0a)}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \resizebox{\textwidth}{!}{%
+            \input{tabella-input-0a.tex}
+            }
+        \end{column}
+        \pause
+        \begin{column}{0.55\textwidth}
+            \scriptsize
+            \input{temperatura+pressione--parete-0a.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto verifica condensa interstizionale}
+    \framesubtitle{Parete solo isolante (0b)}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \resizebox{\textwidth}{!}{%
+            \input{tabella-input-0b.tex}
+            }
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \scriptsize
+            \input{temperatura+pressione--parete-0b.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto verifica condensa interstizionale}
+    \framesubtitle{Parete in laterizio con isolante interno (1a)}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \resizebox{\textwidth}{!}{%
+            \input{tabella-input-1a.tex}
+            }
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \scriptsize
+            \input{temperatura+pressione--parete-1a.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto verifica condensa interstizionale}
+    \framesubtitle{Parete in laterizio con isolante esterno (1b)}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \resizebox{\textwidth}{!}{%
+            \input{tabella-input-1b.tex}
+            }
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \scriptsize
+            \input{temperatura+pressione--parete-1b.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto verifica condensa interstizionale}
+    \framesubtitle{Parete in muratura Poroton con isolante esterno (2a)}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \resizebox{\textwidth}{!}{%
+            \input{tabella-input-2a.tex}
+            }
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \scriptsize
+            \input{temperatura+pressione--parete-2a.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto verifica condensa interstizionale}
+    \framesubtitle{Parete in X-LAM con isolante bassa densità (3a)}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \resizebox{\textwidth}{!}{%
+            \input{tabella-input-3a.tex}
+            }
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \scriptsize
+            \input{temperatura+pressione--parete-3a.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto verifica condensa interstizionale}
+    \framesubtitle{Parete in X-LAM con isolante bassa densità lana di roccia (3b)}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \resizebox{\textwidth}{!}{%
+            \input{tabella-input-3b.tex}
+            }
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \scriptsize
+            \input{temperatura+pressione--parete-3b.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto verifica condensa interstizionale}
+    \framesubtitle{Parete in X-LAM con isolante alta densità fibra di legno (3c)}
+    \begin{columns}
+        \begin{column}{0.45\textwidth}
+            \resizebox{\textwidth}{!}{%
+            \input{tabella-input-3c.tex}
+            }
+        \end{column}
+        \begin{column}{0.55\textwidth}
+            \scriptsize
+            \input{temperatura+pressione--parete-3c.tex}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+
+% ---------------------
+% dinamica
+% ----------------------
+\begin{frame}
+    \frametitle{Confronto}
+    \framesubtitle{Parete solo mattone pieno (0a)}
+    \input{../CHAPTERS/tabella-dinamica-0a.tex}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto}
+    \framesubtitle{Parete solo isolante (0b)}
+    \input{../CHAPTERS/tabella-dinamica-0b.tex}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto}
+    \framesubtitle{Parete in laterizio con isolante interno (1a)}
+    \input{../CHAPTERS/tabella-dinamica-1a.tex}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto}
+    \framesubtitle{Parete in laterizio con isolante esterno (1b)}
+    \input{../CHAPTERS/tabella-dinamica-1b.tex}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto}
+    \framesubtitle{Parete in muratura Poroton con isolante esterno (2a)}
+    \input{../CHAPTERS/tabella-dinamica-2a.tex}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto}
+    \framesubtitle{Parete in X-LAM con isolante bassa densità (3a)}
+    \input{../CHAPTERS/tabella-dinamica-3a.tex}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto}
+    \framesubtitle{Parete in X-LAM con isolante bassa densità lana di roccia (3b)}
+    \input{../CHAPTERS/tabella-dinamica-3b.tex}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto}
+    \framesubtitle{Parete in X-LAM con isolante alta densità fibra di legno (3c)}
+    \input{../CHAPTERS/tabella-dinamica-3c.tex}
+\end{frame}
+% -------------------
+% grafici confronti
+% -------------------
+\begin{frame}
+    \frametitle{Confronto totale}
+    \framesubtitle{...che fuoriesce dallo schermo}
+    \centering
+    \resizebox{0.9\linewidth}{!}{%
+    \footnotesize
+        \input{confrontobeamerVersion.tex}
+    }
+    \begin{textblock*}{15cm}(4.8cm,0.1cm)
+        \scriptsize
+            \definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+            \definecolor{color1}{rgb}{1,0.498039215686275,0.0549019607843137}
+            \definecolor{color2}{rgb}{0.172549019607843,0.627450980392157,0.172549019607843}
+            \definecolor{color3}{rgb}{0.83921568627451,0.152941176470588,0.156862745098039}
+            \definecolor{color4}{rgb}{0.580392156862745,0.403921568627451,0.741176470588235}
+            \definecolor{color5}{rgb}{0.549019607843137,0.337254901960784,0.294117647058824}
+            \definecolor{color6}{rgb}{0.890196078431372,0.466666666666667,0.76078431372549}
+            \begin{flushleft}
+                {%
+                \setlength{\fboxrule}{1pt}
+                \fcolorbox{color0}{white}{Spessore $[\SI{}{\metre}]$} 
+                \fcolorbox{color1}{white}{Resistenza $[\SI{}{\metre\squared\kelvin\per\watt}]$} 
+                \fcolorbox{color2}{white}{Massa superficiale $[\times\SI{.e2}{\kilo\gram\per\metre\squared}]$} \\
+                \fcolorbox{color3}{white}{Trasmittanza termica periodica $Y_{12} [\SI{}{\watt\per\metre\squared\per\kelvin}]$} 
+                \fcolorbox{color4}{white}{Sfasamento $[\SI{}{\hour}]$} \\
+                \fcolorbox{color5}{white}{Fattore di attenuazione $[\times\SI{.e-1}{}]$} \\
+                \fcolorbox{color6}{white}{Capacità termica periodica interna $k_1 [\times \SI{.e-1}{\kilo\joule\per\metre\squared\per\kelvin}]$} 
+                }
+            \end{flushleft}
+        \end{textblock*}
+\end{frame}
+\begin{frame}
+    \frametitle{Confronto totale}
+    \framesubtitle{...senza le prime due pareti}
+    \centering
+    \resizebox{0.9\linewidth}{!}{%
+    \footnotesize
+        \input{confronto2beamerVersion.tex}
+    }
+    \begin{textblock*}{15cm}(4.8cm,0.1cm)
+        \scriptsize
+            \definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+            \definecolor{color1}{rgb}{1,0.498039215686275,0.0549019607843137}
+            \definecolor{color2}{rgb}{0.172549019607843,0.627450980392157,0.172549019607843}
+            \definecolor{color3}{rgb}{0.83921568627451,0.152941176470588,0.156862745098039}
+            \definecolor{color4}{rgb}{0.580392156862745,0.403921568627451,0.741176470588235}
+            \definecolor{color5}{rgb}{0.549019607843137,0.337254901960784,0.294117647058824}
+            \definecolor{color6}{rgb}{0.890196078431372,0.466666666666667,0.76078431372549}
+            \begin{flushleft}
+                {%
+                \setlength{\fboxrule}{1pt}
+                \fcolorbox{color0}{white}{Spessore $[\SI{}{\metre}]$} 
+                \fcolorbox{color1}{white}{Resistenza $[\SI{}{\metre\squared\kelvin\per\watt}]$} 
+                \fcolorbox{color2}{white}{Massa superficiale $[\times\SI{.e2}{\kilo\gram\per\metre\squared}]$} \\
+                \fcolorbox{color3}{white}{Trasmittanza termica periodica $Y_{12} [\SI{}{\watt\per\metre\squared\per\kelvin}]$} 
+                \fcolorbox{color4}{white}{Sfasamento $[\SI{}{\hour}]$} \\
+                \fcolorbox{color5}{white}{Fattore di attenuazione $[\times\SI{.e-1}{}]$} \\
+                \fcolorbox{color6}{white}{Capacità termica periodica interna $k_1 [\times \SI{.e-1}{\kilo\joule\per\metre\squared\per\kelvin}]$} 
+                }
+            \end{flushleft}
+        \end{textblock*}
+\end{frame}
+\begin{frame}
+    \begin{block}{Problemi aperti}
+        Un numero pari $>2$ è sempre la somma di due primi?
+    \end{block}
+    \begin{exampleblock}{Un esempio}
+        $2$ è un numero primo
+    \end{exampleblock}
+    \begin{alertblock}{Un errore}
+        $0=1$
+    \end{alertblock}
+\end{frame}
+
+
+
+
+
+
+\end{document}

@@ -10,19 +10,19 @@
 \definecolor{color6}{rgb}{0.890196078431372,0.466666666666667,0.76078431372549}
 
 \begin{axis}[
-height=15cm,
+height=\textheight,
 legend cell align={left},
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, draw=white!80!black},
 tick align=outside,
 tick pos=left,
 width=\linewidth,
 x grid style={white!69.0196078431373!black},
-xmin=-0.783714285714286, xmax=7.78371428571429,
+xmin=-0.683714285714286, xmax=5.68371428571429,
 xtick style={color=black},
-xtick={-1,0,1,2,3,4,5,6,7,8},
-xticklabels={,0a,0b,1a,1b,2a,3a,3b,3c,},
+xtick={-1,0,1,2,3,4,5,6},
+xticklabels={,1a,1b,2a,3a,3b,3c,},
 y grid style={white!69.0196078431373!black},
-ymin=0, ymax=30,
+ymin=0, ymax=16,
 ytick style={color=black}
 ]
 \draw[draw=none,fill=color0] (axis cs:-0.394285714285714,0) rectangle (axis cs:-0.291428571428571,0.35);
@@ -320,17 +320,4 @@ ytick style={color=black}
   rotate=90.0
 ]{3.62};
 \end{axis}
-{%
-\setlength{\fboxrule}{2.5pt}
-\node[align=left] at (9.15,-2) {
-      \fcolorbox{color0}{white}{Spessore $[\SI{}{\metre}]$} \qquad
-      \fcolorbox{color1}{white}{Resistenza $[\SI{}{\metre\squared\kelvin\per\watt}]$} \qquad
-      \fcolorbox{color2}{white}{Massa superficiale $[\times\SI{.e2}{\kilo\gram\per\metre\squared}]$} \\
-      \fcolorbox{color3}{white}{Trasmittanza termnica periodica $Y_{12} [\SI{}{\watt\per\metre\squared\per\kelvin}]$} \qquad
-      \fcolorbox{color4}{white}{Sfasamento $[\SI{}{\hour}]$} \qquad
-      \fcolorbox{color5}{white}{Fattore di attenuazione $[\times\SI{.e-1}{}]$} \\
-      \fcolorbox{color6}{white}{Capacità termica periodica interna $k_1 [\times \SI{.e-1}{\kilo\joule\per\metre\squared\per\kelvin}]$} 
-      };
-}     
-
 \end{tikzpicture}

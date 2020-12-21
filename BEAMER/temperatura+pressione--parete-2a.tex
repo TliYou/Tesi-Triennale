@@ -3,14 +3,14 @@
 
 \definecolor{color0}{rgb}{1,0.647058823529412,0}
 
-\begin{groupplot}[group style={group size=1 by 2,vertical sep=2.5cm}]
+\begin{groupplot}[group style={group size=1 by 2,vertical sep=2.0cm}]
 \nextgroupplot[
 	 ticklabel style={ 
  		 /pgf/number format/fixed, 
  		 /pgf/number format/precision=5
 		}, 
 scaled ticks=false,
-height=7cm,
+height=0.4\textheight,
 legend cell align={left},
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, draw=white!80!black},
 minor xtick={},
@@ -47,7 +47,7 @@ table {%
  		 /pgf/number format/precision=5
 		}, 
 scaled ticks=false,
-height=7cm,
+height=0.4\textheight,
 legend cell align={left},
 legend style={fill opacity=0.8, draw opacity=1, text opacity=1, draw=white!80!black},
 minor xtick={},
@@ -68,7 +68,7 @@ ymin=267.718821714975, ymax=2321.2881747483,
 ytick style={color=black},
 ytick={250,500,750,1000,1250,1500,1750,2000,2250,2500}
 ]
-\addplot [line width=1.5pt, color0]
+\addplot [line width=0.5pt, color0]
 table {%
 0 1519.01824347152
 0.09 1474.09756139266
@@ -77,7 +77,7 @@ table {%
 2.32 361.06288321649
 };
 \addlegendentry{Pressione}
-\addplot [line width=1.5pt, red]
+\addplot [line width=0.5pt, red]
 table {%
 0 2227.94411324679
 0.09 2207.49907020222
