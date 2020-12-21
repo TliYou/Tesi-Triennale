@@ -1,5 +1,8 @@
 \documentclass[aspectratio=141,10pt]{beamer}
-%\usepackage{geometry}\geometry{a4paper,top=3.5cm,bottom=3.5cm,left=2.5cm,right=2.5cm,heightrounded,bindingoffset=0mm}
+% Per stampare:
+%\documentclass[aspectratio=141,10pt,handout]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=0mm]
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
@@ -88,7 +91,7 @@ numberstyle=\tiny,}
   {\Large{\textsc{Confronto prestazionale\\ tra diverse soluzioni edilizie\\}}}
   
   \vspace{0.2 cm}
-  {\it{Analisi termo igrometrica di alcuni pacchetti strutturali composti da differenti materiali. }}
+  {\it{Analisi termo-igrometrica in regime stazionario e dinamico di alcuni pacchetti perimetrali composti da differenti materiali secondo la normativa di riferimento}}
 
 
   \vspace{1.5 cm} 
@@ -178,7 +181,7 @@ Calcolo della pressione del vapore a partire da quella interna:
 \end{frame}
 
 \begin{frame}
-    \frametitle{Confronto verifica condensa interstizionale}
+    \frametitle{Confronto verifica condensa interstiziale}
     \framesubtitle{Parete solo mattone pieno (0a)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
@@ -194,7 +197,7 @@ Calcolo della pressione del vapore a partire da quella interna:
     \end{columns}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto verifica condensa interstizionale}
+    \frametitle{Confronto verifica condensa interstiziale}
     \framesubtitle{Parete solo isolante (0b)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
@@ -209,7 +212,7 @@ Calcolo della pressione del vapore a partire da quella interna:
     \end{columns}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto verifica condensa interstizionale}
+    \frametitle{Confronto verifica condensa interstiziale}
     \framesubtitle{Parete in laterizio con isolante interno (1a)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
@@ -224,7 +227,7 @@ Calcolo della pressione del vapore a partire da quella interna:
     \end{columns}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto verifica condensa interstizionale}
+    \frametitle{Confronto verifica condensa interstiziale}
     \framesubtitle{Parete in laterizio con isolante esterno (1b)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
@@ -239,7 +242,7 @@ Calcolo della pressione del vapore a partire da quella interna:
     \end{columns}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto verifica condensa interstizionale}
+    \frametitle{Confronto verifica condensa interstiziale}
     \framesubtitle{Parete in muratura Poroton con isolante esterno (2a)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
@@ -254,7 +257,7 @@ Calcolo della pressione del vapore a partire da quella interna:
     \end{columns}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto verifica condensa interstizionale}
+    \frametitle{Confronto verifica condensa interstiziale}
     \framesubtitle{Parete in X-LAM con isolante bassa densità (3a)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
@@ -269,7 +272,7 @@ Calcolo della pressione del vapore a partire da quella interna:
     \end{columns}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto verifica condensa interstizionale}
+    \frametitle{Confronto verifica condensa interstiziale}
     \framesubtitle{Parete in X-LAM con isolante bassa densità lana di roccia (3b)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
@@ -284,7 +287,7 @@ Calcolo della pressione del vapore a partire da quella interna:
     \end{columns}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto verifica condensa interstizionale}
+    \frametitle{Confronto verifica condensa interstiziale}
     \framesubtitle{Parete in X-LAM con isolante alta densità fibra di legno (3c)}
     \begin{columns}
         \begin{column}{0.45\textwidth}
@@ -444,42 +447,42 @@ Indica la capacità di accumolare calore di una parete.
 % grafici dinamica
 % --------------------
 \begin{frame}
-    \frametitle{Confronto}
+    \frametitle{Confronto in regime dinamico}
     \framesubtitle{Parete solo mattone pieno (0a)}
     \input{../CHAPTERS/tabella-dinamica-0a.tex}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto}
+    \frametitle{Confronto in regime dinamico}
     \framesubtitle{Parete solo isolante (0b)}
     \input{../CHAPTERS/tabella-dinamica-0b.tex}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto}
+    \frametitle{Confronto in regime dinamico}
     \framesubtitle{Parete in laterizio con isolante interno (1a)}
     \input{../CHAPTERS/tabella-dinamica-1a.tex}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto}
+    \frametitle{Confronto in regime dinamico}
     \framesubtitle{Parete in laterizio con isolante esterno (1b)}
     \input{../CHAPTERS/tabella-dinamica-1b.tex}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto}
+    \frametitle{Confronto in regime dinamico}
     \framesubtitle{Parete in muratura Poroton con isolante esterno (2a)}
     \input{../CHAPTERS/tabella-dinamica-2a.tex}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto}
+    \frametitle{Confronto in regime dinamico}
     \framesubtitle{Parete in X-LAM con isolante bassa densità (3a)}
     \input{../CHAPTERS/tabella-dinamica-3a.tex}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto}
+    \frametitle{Confronto in regime dinamico}
     \framesubtitle{Parete in X-LAM con isolante bassa densità lana di roccia (3b)}
     \input{../CHAPTERS/tabella-dinamica-3b.tex}
 \end{frame}
 \begin{frame}
-    \frametitle{Confronto}
+    \frametitle{Confronto in regime dinamico}
     \framesubtitle{Parete in X-LAM con isolante alta densità fibra di legno (3c)}
     \input{../CHAPTERS/tabella-dinamica-3c.tex}
 \end{frame}
