@@ -44,6 +44,7 @@ numberstyle=\tiny,}
 %\usepackage{pythontex}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pgf} 
+\newcommand{\bc}[1]{\textcolor{pantone186}{\textbf{#1}}} %bold colored 
 \title[Confronto prestazionale]{Confronto prestazionale tra diverse soluzioni edilizie}
 \subtitle{d}
 \author{Nicola Meoli}
@@ -66,6 +67,7 @@ numberstyle=\tiny,}
 \setbeamercolor{palette sidebar tertiary}{fg=white,bg=pantone186}
 \setbeamercolor{palette sidebar quaternary}{fg=white,bg=pantone186}
 \setbeamerfont{frametitle}{series=\bfseries} %titolo frame in grassetto
+\useinnertheme{circles}
 \begin{document}
 \begin{frame}
 \pagestyle{plain}
@@ -104,25 +106,77 @@ numberstyle=\tiny,}
 
 %---------------------------------------------------------------
 %---------------------------------------------------------------
+\begin{frame}
+    \frametitle{Da un precedente lavoro di gruppo...}
+    ... si era visto come la scelta di differenti materiali per le pareti esterne una casa a schiera, volesse dire costi di costruzione-manutenzione e tempi di messa in opera estremante diversi.
+    \vspace{2cm}
 
-\begin{frame}{ciaoo}
-    ciao 
-    \pause
-    ciaooo
+    Ora si vuole confrontare gli stessi materiali da un punto di vista termo-igrometrico in regime stazionario e dinamico, con un occhio di riguardo al comfort abitativo e al dispendio di energia.
+\end{frame}
+\begin{frame}
+    \frametitle{Regime stazionario}
+    \framesubtitle{Rischio di condensazione interstiziale} 
+    Metodologia secondo:
+    \begin{itemize}
+        \item UNI EN ISO 13788:2003
+        \item diagramma di Glaser
+    \end{itemize}
+    consiste nell'avere per ogni punto:
+        \begin{equation*}
+            p_{\text{SAT.}} < p 
+        \end{equation*}
+\pause
+\vspace{1cm}
+
+\e neccessario quindi calcolare l'andamento delle due pressioni e controllare il non superamento graficamente. 
+
+Per ogni strato occorre conoscere:
+\begin{itemize}
+    \item spessore: $s \quad [\SI{}{\metre}]$
+    \item conducibilità termica: $\lambda \quad [\SI{}{\watt\per\metre\squared\per\kelvin}]$
+    \item permeabilità al vapore: $\mu \quad [-]$
+\end{itemize}    
 \end{frame}
 \begin{frame}
     \frametitle{Verifica condensa interstiziale}
     \framesubtitle{Temperatura}
-Calcolo della temperatura per ogni strato a partire dalla temperatura interna 
+
+Ipotesi di \bc{flusso} del calore \bc{stazionario}, ovvero la quantità in entrata è uguale alla quantità in uscita.    
+\pause
+\vspace{1cm}
+
+Calcolo della temperatura per ogni strato a partire dalla temperatura interna:
     \begin{align*}
         \Delta\vartheta &= \vartheta_{\text{int.}} - \vartheta_{\text{est.}} \\
         \vartheta^{(1)} &= \vartheta_{\text{int.}} \\
         \vartheta^{(k)} &= \vartheta_{\text{int.}} - \frac{\Delta\vartheta}{R_{tot}} \, \left(R_{\text{s,int.}} + \sum_{i=1}^{k}R^{(i)}\right) \\
         \vartheta^{(N)} &= \vartheta_{\text{est.}} \qquad \left[\SI{}{\celsius}\right]
     \end{align*}
-    \pause
-    ciaooo
+    dove $R^{(k)}=\dfrac{s^{(k)}}{\lambda^{(k)}} \quad [\SI{}{\metre\squared\kelvin\per\watt}]$
 \end{frame}
+\begin{frame}
+    \frametitle{Verifica condensa interstiziale}
+    \framesubtitle{Pressioni}
+Calcolo della pressione di saturazione a partire dalla temperatura appena trovata:    
+    \begin{equation*}
+        p^{(k)}_{\text{SAT.}} =
+        \begin{cases}
+                610.5\exp\left(\frac{17.269\,\vartheta^{(k)}}{237.3 + \vartheta^{(k)}}\right) & \text{per $\vartheta^{(k)}\geq \SI{0}{\celsius}$}\\ 
+                610.5\exp\left(\frac{21.875\,\vartheta^{(k)}}{265.5 + \vartheta^{(k)}}\right) & \text{per $\vartheta^{(k)} \leq  \SI{0}{\celsius}$}
+        \end{cases}
+        \qquad \left[\SI{}{\pascal}\right]
+    \end{equation*}
+
+Calcolo della pressione del vapore a partire da quella interna: 
+    \begin{align*}
+        p^{(1)} &= p_{\text{int.}} = p^{\text{SAT.}}_{\text{int.}} \cdot UR_{\text{int.}}\\
+        p^{(N)} &= p_{\text{est.}} = p^{\text{SAT.}}_{\text{est.}} \cdot UR_{\text{est.}}\\
+        \Delta p &= p_{\text{int.}} - p_{\text{est.}} \\
+        p^{(k)} &= p_{\text{int.}} - \frac{\Delta p}{Sd_{tot}} \, \left(\sum_{i=1}^{k} Sd^{(i)} \right) \qquad \left[\SI{}{\pascal}\right]
+    \end{align*}
+    dove $S_d^{(k)} = s^{(k)} \cdot \mu^{(k)} \quad [\SI{}{\metre}]$
+\end{frame}
+
 \begin{frame}
     \frametitle{Confronto verifica condensa interstizionale}
     \framesubtitle{Parete solo mattone pieno (0a)}
@@ -244,12 +298,151 @@ Calcolo della temperatura per ogni strato a partire dalla temperatura interna
         \end{column}
     \end{columns}
 \end{frame}
-
+\begin{frame}
+    Come risolvere per i punti in cui si ha condensa?
+    \begin{itemize}
+        \item Utilizzare isolanti differenti (es: sughero) e/o fare in modo di non avere bruschi cali di temperatura
+        \item Utilizzare freni o barriere al vapore nel lato caldo 
+        \item Controllare l'umidità attraverso la ventilazione
+        \item Utilizzare materiali a cambiamento di fase PCM
+    \end{itemize}
+\end{frame}
 
 
 % ---------------------
 % dinamica
 % ----------------------
+
+\begin{frame}
+    \frametitle{Regime dinamico}
+    \framesubtitle{Matrici di trasferimento secondo la UNI EN ISO 13786:2007}
+In aggiunta a quanto visto prima, è necessario conoscere per ogni materiale:
+    \begin{itemize}
+        \item densità del materiale: $\rho \quad \left[\SI{}{\kilo\gram\per\metre\cubed}\right]$
+        \item calore specifico: $c \quad \left[\SI{}{\joule\per\kilo\gram\per\kelvin}\right]$
+    \end{itemize}
+
+    Per ogni singolo strato $k$-esimo va calcolata la matrice di trasferimento:
+\begin{equation*}
+    \mathbf{Z}^{(k)} =
+    \begin{bmatrix}  
+        Z_{11}^{(k)} & Z_{12}^{(k)} \\
+        Z_{21}^{(k)} & Z_{22}^{(k)}
+    \end{bmatrix}
+\end{equation*}
+\pause
+dove le componenti della matrice $\mathbf{Z^{(k)}}$ sono:
+
+{\scriptsize
+\begin{align*}
+    Z_{11}^{(k)} &= Z_{22}^{(k)} = \cosh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right) + \mathrm{i} \left[\sinh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right)\right] \\
+    Z_{12}^{(k)} &=-\frac{\delta^{(k)}}{2\lambda^{(k)}}\Bigl\{\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)+\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right) + \mathrm{i}\left[\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right)-\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)\right]  \Bigr\} \\
+    Z_{21}^{(k)} &= \frac{\lambda^{(k)}}{\delta^{(k)}}\Bigl\{  \sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)-\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right) + \mathrm{i} \left[\sinh\left(\xi^{(k)}\right)\cos\left(\xi^{(k)}\right)+\cosh\left(\xi^{(k)}\right)\sin\left(\xi^{(k)}\right)\right] \Bigr\}
+\end{align*}}
+e dove $\delta^{(k)} = \sqrt{\frac{\lambda^{(k)} \, T}{\pi \,\rho^{(k)} \,c^{(k)}}} \,\left[\SI{}{\metre}\right]$ è la profondità di penetrazione e $\xi^{(k)} = \dfrac{s^{(k)}}{\delta^{(k)}} \,\left[\SI{}{-}\right]$ è il rapporto delle due lunghezze.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Regime dinamico}
+    \framesubtitle{Matrici di trasferimento}
+    Moltiplicando le matrici di trasferimento di ogni singolo strato si ottiene la matrice di trasferimento dell'intero componente edilizio relativa agli $N$  strati:
+\begin{equation*}
+    \mathbf{Z}=\mathbf{Z}_{N}\cdot\mathbf{Z}_{N-1}\cdot\ldots\cdot\mathbf{Z}_{2}\cdot\mathbf{Z}_{1} 
+\end{equation*}
+\pause
+Pre e post moltiplicando per le matrici di trasferimento degli strati laminari
+\begin{equation*}
+    \mathbf{Z}_{\text{int.}} = 
+    \begin{bmatrix}
+        1 & -R_{\text{s,int.}} \\
+        0 & 1
+    \end{bmatrix}
+    \qquad
+    \mathbf{Z}_{\text{est.}} = 
+    \begin{bmatrix}
+        1 & -R_{\text{s,est.}} \\
+        0 & 1
+    \end{bmatrix}
+\end{equation*}
+si ottiene la matrice di trasferimento da lato a lato:
+\begin{equation*}
+    \mathbf{Z}_{\text{ee}} = \mathbf{Z}_{\text{est.}} \cdot \mathbf{Z} \cdot \mathbf{Z}_{\text{int.}} 
+\end{equation*}
+\pause
+Nel regime dinamico si è nell'ipotesi che il \bc{flusso non si conserva} tra strato a strato. Questo perchè una parte di esso viene assorbito dal materiale, accumolandosi al suo interno. 
+\end{frame}
+\begin{frame}
+\frametitle{Calcolo delle proprietà di nostro interesse dalla $\mathbf{Z}_{\text{ee}}$}
+\framesubtitle{Trasmittanza termica periodica, attenuazione, sfasamento}
+    Dall'elemento {\footnotesize $12$} della matrice $\mathbf{Z_{\text{ee}}}$ si ricava la trasmittanza termica periodica $Y_{12}$ tramite il modulo della parte reale e immaginaria
+\begin{equation*}
+    Y_{12} = \left\lvert -\frac{1}{Z_{\text{ee},12}}\right\rvert 
+\end{equation*} 
+e il fattore di attenuazione $f$
+\begin{equation*}
+    f = -\frac{Y_{12}}{U} 
+\end{equation*}
+Lo sfasamento riferito al tempo iniziale si ottiene come:
+\begin{equation*}
+    \Delta \tau = \frac{T}{2\,\pi}\arg\left(Z_{\text{ee},12}\right) + \frac{T}{2} 
+\end{equation*}
+\pause 
+\centering
+\begin{tikzpicture}[domain=0:7]
+    \draw[very thin,color=gray] (-0.1,-1.1) grid (7,1.1);
+    \draw[->] (-0.2,0) -- (7.2,0) node[right] {$\tau$};
+    \draw[->] (0,-1.2) -- (0,1.2) node[above] {$T(\tau)$};
+    \draw[color=blue,thick]   plot (\x,{sin(\x r)})   node[above right] {$A_E \sin (\tau)$};
+    \draw[color=red,thick]   plot (\x,{sin(\x r -40 )})   node[below right] {$\sin (\tau + \varphi)$};
+    \draw[color=orange,thick]   plot (\x,{0.7* sin(\x r)})   node[right] {$A_I \sin (\tau$)};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Calcolo delle proprietà di nostro interesse dalla $\mathbf{Z}_{\text{ee}}$}
+\framesubtitle{Ammettanze termiche, capacità termica periodica}
+
+La trasmittanza termica periodica $Y_{12}$ indica perciò la capacità di una parete opaca (sottoposta ad un flusso termico sinusoidale) a sfasare ed attenuare l'onda di temperatura.
+\vspace{1cm}
+
+\pause
+Dagli elementi {\footnotesize $11$} e {\footnotesize $22$} si ricavano riispettivamente l'ammettanza termica interna ed esterna 
+\begin{equation*}
+    Y_{\text{ii}}=Y_{11} = \left\lvert -\frac{1}{Z_{\text{ee},11}}\right\rvert \qquad \qquad
+    Y_{\text{ee}}=Y_{22} = \left\lvert -\frac{1}{Z_{\text{ee},22}}\right\rvert 
+\end{equation*}     
+
+Un'altra quantità molto utile è la capacità termica periodica interna per unità di superficie. \e definita dalla normativa come $k_1 = \frac{T}{2\,\pi} \left\lvert Y_{11} - Y_{12}\right\rvert$ e sostituendo i termini in funzione dalla matrice di trasfermento, si può riscrivere come:
+\begin{equation*}
+    k_1 = \frac{T}{2\,\pi} \left\lvert \frac{Z_{\text{ee},11} - 1}{Z_{\text{ee},12}}\right\rvert\,.
+\end{equation*}
+Indica la capacità di accumolare calore di una parete.
+\end{frame}
+\begin{frame}
+    \frametitle{Altre proprietà importanti}
+    \framesubtitle{Diffusività ed effusività termica}
+
+    La diffusività termica $\alpha$ è un indicatore della velocità reazione di un materiale alla variazione di temperatura
+    \begin{equation*}
+        \alpha^{(k)} = \dfrac{\lambda^{(k)}}{c^{(k)} \cdot \rho^{(k)}} \quad \left[\SI{.e-7}{\metre\squared\per\second}\right]
+    \end{equation*}
+    \vspace{1cm}
+
+    L'effusività termica $\beta$ è invece l'attitudine di un materiale a lasciar passare il calore
+    \begin{equation*}
+        \beta^{(k)} = \sqrt{\lambda^{(k)} \cdot c^{(k)} \cdot \rho^{(k)}} \quad \left[\SI{}{\watt\second\tothe{0.5}\per\metre\squared\per\kelvin}\right]
+    \end{equation*}
+
+
+\end{frame}
+
+
+
+% --------------------
+% grafici dinamica
+% --------------------
 \begin{frame}
     \frametitle{Confronto}
     \framesubtitle{Parete solo mattone pieno (0a)}
@@ -355,17 +548,7 @@ Calcolo della temperatura per ogni strato a partire dalla temperatura interna
             \end{flushleft}
         \end{textblock*}
 \end{frame}
-\begin{frame}
-    \begin{block}{Problemi aperti}
-        Un numero pari $>2$ è sempre la somma di due primi?
-    \end{block}
-    \begin{exampleblock}{Un esempio}
-        $2$ è un numero primo
-    \end{exampleblock}
-    \begin{alertblock}{Un errore}
-        $0=1$
-    \end{alertblock}
-\end{frame}
+
 
 
 
