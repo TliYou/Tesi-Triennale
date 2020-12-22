@@ -103,7 +103,7 @@ numberstyle=\tiny,}
   \vspace{.3cm} 
   \textcolor{pantone186}{\noindent\rule{\textwidth}{1pt}}
     
-  {Anno accademico 2020/21}
+  {Anno accademico 2019/20}
 \end{center}
 \end{frame}
 
@@ -111,7 +111,7 @@ numberstyle=\tiny,}
 %---------------------------------------------------------------
 \begin{frame}
     \frametitle{Da un precedente lavoro di gruppo...}
-    ... si era visto come la scelta di differenti materiali per le pareti esterne una casa a schiera, volesse dire costi di costruzione-manutenzione e tempi di messa in opera estremante diversi.
+    ... si era visto come la scelta di differenti materiali per le pareti esterne di una casa a schiera, volesse dire costi di costruzione-manutenzione e tempi di messa in opera estremante diversi.
     \vspace{2cm}
 
     Ora si vuole confrontare gli stessi materiali da un punto di vista termo-igrometrico in regime stazionario e dinamico, con un occhio di riguardo al comfort abitativo e al dispendio di energia.
@@ -124,16 +124,16 @@ numberstyle=\tiny,}
         \item UNI EN ISO 13788:2003
         \item diagramma di Glaser
     \end{itemize}
-    consiste nell'avere per ogni punto:
+    consistente nell'avere per ogni punto:
         \begin{equation*}
             p_{\text{SAT.}} < p 
         \end{equation*}
 \pause
 \vspace{1cm}
 
-\e neccessario quindi calcolare l'andamento delle due pressioni e controllare il non superamento graficamente. 
+Occorre calcolare l'andamento delle due pressioni e controllare il non superamento graficamente. 
 
-Per ogni strato occorre conoscere:
+Per ogni strato è necessario conoscere:
 \begin{itemize}
     \item spessore: $s \quad [\SI{}{\metre}]$
     \item conducibilità termica: $\lambda \quad [\SI{}{\watt\per\metre\squared\per\kelvin}]$
@@ -349,7 +349,7 @@ e dove $\delta^{(k)} = \sqrt{\frac{\lambda^{(k)} \, T}{\pi \,\rho^{(k)} \,c^{(k)
 \begin{frame}
     \frametitle{Regime dinamico}
     \framesubtitle{Matrici di trasferimento}
-    Moltiplicando le matrici di trasferimento di ogni singolo strato si ottiene la matrice di trasferimento dell'intero componente edilizio relativa agli $N$  strati:
+    Moltiplicando scalarmente le matrici di trasferimento di ogni singolo  strato (a partire da quello più esterno) si ottiene la matrice di trasferimento dell'intero componente edilizio relativa agli $N$  strati:
 \begin{equation*}
     \mathbf{Z}=\mathbf{Z}_{N}\cdot\mathbf{Z}_{N-1}\cdot\ldots\cdot\mathbf{Z}_{2}\cdot\mathbf{Z}_{1} 
 \end{equation*}
@@ -401,33 +401,64 @@ Lo sfasamento riferito al tempo iniziale si ottiene come:
     \draw[color=orange,thick]   plot (\x,{0.7* sin(\x r)})   node[right] {$A_I \sin (\tau$)};
 \end{tikzpicture}
 \end{frame}
+\begin{frame}
+    \frametitle{Calcolo delle proprietà di nostro interesse dalla $\mathbf{Z}_{\text{ee}}$}
+    \framesubtitle{Trasmittanza termica periodica, attenuazione, sfasamento}
+    La trasmittanza termica periodica $Y_{12}$ indica perciò la capacità di una parete opaca (sottoposta ad un flusso termico sinusoidale) a sfasare ed attenuare l'onda di temperatura.
+    \vspace{1cm}
 
+    Valori ottimali definiti dalla normativa:
+    \vspace{0.5cm}
+
+    \begin{table}
+    \centering
+    \begin{tabular}{ccc}
+        \toprule 
+        Sfasamento [ore] & Attenuazione & Prestazioni \\
+        \midrule
+        $S > 12$& $f_d < 0.15$&ottime\\
+        $10 < S < 12$&$0.15 < f_d < 0.30$&buone\\
+        $8 < S < 10$&$0.30 < f_d < 0.40$&medie\\
+        $6 < S < 8$&$0.40 < f_d < 0.60$&sufficienti\\
+        $S < 6$&$f_d > 0.60$&mediocri\\
+        \bottomrule
+    \end{tabular}
+    \end{table}
+\vspace{1cm
+}
+    \begin{equation*}
+        \begin{cases}
+            Y_{12} < \SI{0.10}{\watt\per\metre\squared\per\kelvin} \\
+            \text{oppure}\\
+            M_s > \SI{230}{\kilo\gram\per\metre\squared}
+        \end{cases}
+    \end{equation*}
+
+\end{frame}
 
 \begin{frame}
     \frametitle{Calcolo delle proprietà di nostro interesse dalla $\mathbf{Z}_{\text{ee}}$}
 \framesubtitle{Ammettanze termiche, capacità termica periodica}
 
-La trasmittanza termica periodica $Y_{12}$ indica perciò la capacità di una parete opaca (sottoposta ad un flusso termico sinusoidale) a sfasare ed attenuare l'onda di temperatura.
-\vspace{1cm}
 
-\pause
+
 Dagli elementi {\footnotesize $11$} e {\footnotesize $22$} si ricavano riispettivamente l'ammettanza termica interna ed esterna 
 \begin{equation*}
     Y_{\text{ii}}=Y_{11} = \left\lvert -\frac{1}{Z_{\text{ee},11}}\right\rvert \qquad \qquad
     Y_{\text{ee}}=Y_{22} = \left\lvert -\frac{1}{Z_{\text{ee},22}}\right\rvert 
 \end{equation*}     
 
-Un'altra quantità molto utile è la capacità termica periodica interna per unità di superficie. \e definita dalla normativa come $k_1 = \frac{T}{2\,\pi} \left\lvert Y_{11} - Y_{12}\right\rvert$ e sostituendo i termini in funzione dalla matrice di trasfermento, si può riscrivere come:
+Un'altra quantità molto utile è la capacità termica periodica interna per unità di superficie. \e definita dalla normativa come $k_1 = \frac{T}{2\,\pi} \left\lvert Y_{11} - Y_{12}\right\rvert$ la quale, sostituendo i termini in funzione dalla matrice di trasfermento, si può riscrivere come:
 \begin{equation*}
     k_1 = \frac{T}{2\,\pi} \left\lvert \frac{Z_{\text{ee},11} - 1}{Z_{\text{ee},12}}\right\rvert\,.
 \end{equation*}
-Indica la capacità di accumolare calore di una parete.
+Indica la capacità di accumolare calore della parete.
 \end{frame}
 \begin{frame}
     \frametitle{Altre proprietà importanti}
     \framesubtitle{Diffusività ed effusività termica}
 
-    La diffusività termica $\alpha$ è un indicatore della velocità reazione di un materiale alla variazione di temperatura
+    La diffusività termica $\alpha$ è un indicatore della velocità di reazione di un materiale alla variazione di temperatura
     \begin{equation*}
         \alpha^{(k)} = \dfrac{\lambda^{(k)}}{c^{(k)} \cdot \rho^{(k)}} \quad \left[\SI{.e-7}{\metre\squared\per\second}\right]
     \end{equation*}
@@ -512,10 +543,10 @@ Indica la capacità di accumolare calore di una parete.
                 \fcolorbox{color0}{white}{Spessore $[\SI{}{\metre}]$} 
                 \fcolorbox{color1}{white}{Resistenza $[\SI{}{\metre\squared\kelvin\per\watt}]$} 
                 \fcolorbox{color2}{white}{Massa superficiale $[\times\SI{.e2}{\kilo\gram\per\metre\squared}]$} \\
-                \fcolorbox{color3}{white}{Trasmittanza termica periodica $Y_{12} [\SI{}{\watt\per\metre\squared\per\kelvin}]$} 
+                \fcolorbox{color3}{white}{Trasmittanza termica periodica $Y_{12} [\times\SI{.e-2}{\watt\per\metre\squared\per\kelvin}]$} 
                 \fcolorbox{color4}{white}{Sfasamento $[\SI{}{\hour}]$} \\
                 \fcolorbox{color5}{white}{Fattore di attenuazione $[\times\SI{.e-1}{}]$} \\
-                \fcolorbox{color6}{white}{Capacità termica periodica interna $k_1 [\times \SI{.e-1}{\kilo\joule\per\metre\squared\per\kelvin}]$} 
+                \fcolorbox{color6}{white}{Capacità termica periodica interna $k_1 [\times \SI{.e1}{\kilo\joule\per\metre\squared\per\kelvin}]$} 
                 }
             \end{flushleft}
         \end{textblock*}
@@ -543,10 +574,10 @@ Indica la capacità di accumolare calore di una parete.
                 \fcolorbox{color0}{white}{Spessore $[\SI{}{\metre}]$} 
                 \fcolorbox{color1}{white}{Resistenza $[\SI{}{\metre\squared\kelvin\per\watt}]$} 
                 \fcolorbox{color2}{white}{Massa superficiale $[\times\SI{.e2}{\kilo\gram\per\metre\squared}]$} \\
-                \fcolorbox{color3}{white}{Trasmittanza termica periodica $Y_{12} [\SI{}{\watt\per\metre\squared\per\kelvin}]$} 
+                \fcolorbox{color3}{white}{Trasmittanza termica periodica $Y_{12} [\times\SI{.e-2}{\watt\per\metre\squared\per\kelvin}]$} 
                 \fcolorbox{color4}{white}{Sfasamento $[\SI{}{\hour}]$} \\
                 \fcolorbox{color5}{white}{Fattore di attenuazione $[\times\SI{.e-1}{}]$} \\
-                \fcolorbox{color6}{white}{Capacità termica periodica interna $k_1 [\times \SI{.e-1}{\kilo\joule\per\metre\squared\per\kelvin}]$} 
+                \fcolorbox{color6}{white}{Capacità termica periodica interna $k_1 [\times \SI{.e1}{\kilo\joule\per\metre\squared\per\kelvin}]$} 
                 }
             \end{flushleft}
         \end{textblock*}
